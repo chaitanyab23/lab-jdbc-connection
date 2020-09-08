@@ -17,8 +17,12 @@ public class ConnectionManager {
 	public static Connection getConnection() throws Exception {
 		// TODO Auto-generated method stub
 		Properties p=loadPropertiesFile();
+		String driver= p.getProperty("driver");
+		String url= p.getProperty("url");
+		String username =p.getProperty("username");
+		String password= p.getProperty("password");
 		Connection con=null;
-		con = DriverManager.getConnection(p.getProperty("url"), p.getProperty("username"), p.getProperty("password"));
+		con = DriverManager.getConnection(url, username, password);
 		
 		return con;
 	}
